@@ -1,0 +1,121 @@
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+html {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: lightskyblue;
+	min-width: 100svw;
+	min-height: 100svh;
+	width: 100%;
+	height: 100%;
+	border: 1px solid red;
+	display: flex;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.login-container {
+	display: flex;
+	margin: auto;
+	gap: 2rem;
+	height: min-content;
+	width: min-content;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+	width: clamp(280px, 100%, 600px);
+	padding: 1rem;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	border-radius: 0.3rem;
+	background-color: white;
+	overflow: hidden;
+	box-shadow: 0 0 0px 0.7rem rgba(0, 0, 0, 0.1);
+	width: 100%;
+}
+
+.login-header {
+	border-bottom: 1px solid lightgrey;
+	display: flex;
+	font-size: 1.1rem;
+	align-items: center;
+	justify-content: center;
+	background-color: whitesmoke;
+}
+
+.login-body {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 1rem;
+}
+
+.login-footer {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
+button {
+	padding: 0.5rem 1.2rem;
+	border-radius: 20px;
+	font-size: 100%;
+	border: 1px solid lightsteelblue;
+	color: darkslategrey;
+	background-image: linear-gradient(to bottom, white, lightsteelblue);
+}
+
+button:hover {
+	box-shadow: 0 0 5px 0.3rem rgba(0, 0, 100, 0.1);
+}
+
+input::placeholder {
+	color: grey;
+}
+
+input {
+	font-size: 1.234rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.1rem;
+	border: none;
+	outline: none;
+	box-shadow: 0 0 0px 0.3rem rgba(0, 0, 100, 0.1);
+}
+
+input[type=checkbox] {
+	box-shadow: 0 0 10px 10rem rgba(0, 0, 100, 0.1) inset;
+	border: none;
+	outline: none;
+}
+
+label {
+	font-size: 90%;
+}
+
+.forgot-passwor {
+	font-size: 0.8rem;
+	color: white;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	font-weight: normal;
+}
+
