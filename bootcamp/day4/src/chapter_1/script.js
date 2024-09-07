@@ -4,6 +4,7 @@
 	const input = document.getElementById('result-input');
 	const allBtns = document.querySelectorAll('.calc-button');
 
+
 	allBtns.forEach((btn) => {
 		const btnContent = btn.innerText;
 		if (!btnContent || !allowedChars.includes(btnContent)) return;
