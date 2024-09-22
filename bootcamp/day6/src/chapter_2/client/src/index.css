@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+	width: clamp(280px, 100%, 100vw);
+	min-height: 100svh;
+}
+
+#root {
+	height: 100%;
+	width: 100%;
+}
