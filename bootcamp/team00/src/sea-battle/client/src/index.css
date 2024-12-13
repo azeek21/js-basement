@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100svh;
+    min-width: 100svw;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+
+#root {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#test {
+    position: relative;
+}
+
+#test:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("https://avatars.githubusercontent.com/u/91887882?v=4");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.2);
+    z-index: -1;
+    filter: blur(25px);
+}
+
+.ship-unplaceable {
+    background-color: red !important;
+    pointer-events: none;
+}
+
+.ship-placeable {
+    background-color: green !important;
+    pointer-events: auto;
+}

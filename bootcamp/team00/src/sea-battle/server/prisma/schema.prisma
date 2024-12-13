@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id Int @default(autoincrement()) @id
+  username String @unique
+  password String
+  wonGames GameSession[] @relation(name: "game-winner")
+  turns GameSession[] @relation(name: "game-turn-of-user")
+  initiated GameSession[] @relation(name: "game-inviter-user")
+  cGames Int @default(0)
+  cWins Int @default(0)
+  games GameSession[]
+  available Boolean @default(true)
+}
+
+model GameSession {
+  id Int @default(autoincrement()) @id
+  mode GAME_MODES @default(AGAINST_PC)
+  state GAME_PROGRESS_STATE @default(INITIALIZING)
+  winner User? @relation(name: "game-winner", fields: [winnerId], references: [id])
+  winnerId Int?
+  shipPlacementPlayerA String
+  shipPlacementPlayerB String
+  turnOfUser User? @relation(name: "game-turn-of-user",fields: [turnOfUserId], references: [id])
+  turnOfUserId Int?
+  inviter User? @relation(name: "game-inviter-user",fields: [inviterId], references: [id])
+  inviterId Int?
+  players User[] 
+  playerAReady Boolean @default(false)
+  playerBReady Boolean @default(false)
+}
+
+enum GAME_PROGRESS_STATE {
+  STARTED
+  ENDED
+  IN_PROGRESS
+  INITIALIZING
+  SETUP
+}
+
+enum GAME_MODES {
+  AGAINST_PC
+  AGAINST_PLAYER
+}
